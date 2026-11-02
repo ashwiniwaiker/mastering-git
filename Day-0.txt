@@ -1,0 +1,6 @@
+git config --global user.name 'Ashwini'
+
+git config --global user.email 'ashwiniwaiker@gmail.com'
+
+What is Repository?
+-> repository is where G tracks everything in your project think of it like a folder that stores all the versions of your code simply put if a folder is being tracked by git we call it a repo.
