@@ -1,15 +1,92 @@
+What is Repository?
+-> repository is where G tracks everything in your project think of it like a folder that stores all the versions of your code simply put if a folder is being tracked by git we call it a repo.
+
+Staging - ready to commit
+
+Git - It is a tool to track changes
+Github - It is a cloud platform that allows you to store git repo online and collaborate with others to push the local projects to github where we have to link out repo to remote
+
+There are two types of repository: 
+1. local : the version of a project that exist on own machine.
+in case of "git init"  we initialise a repo in local folder changes they are private until we push it into remote repo
+2. remote : the version of a project stored on a server like github, gitlab, bid bucket etc, it used to share code between collaborators and keep project versions in sync across different users computers.
+
+Everyone have their own local repo and a common remote repo where they sync their local repo.
+When we clone a repository from GitHub git automatically names the remote repository as origin by default it's basically an alias for the remote repositories URL
+repository origin = url
+
+step 1 : create a new repo at github
+step 2 : change the name master to main --> git branch -M main
+step 3 : link local repo to remote repo --> git remote add origin <paste repo rigin url>
+step 4 : push local commit to remote repo--> git push -u origin main.     (here "origin" refer to full url, instead to typing full url we use "origin")
+
+PULL REQUEST
+pull request lets you share your changes with your team for review and feedback once approved and merged your changes 
+become a part of the main branch keeping the codebase stable and organized to open up
+
 1. To config name and email
     git config --global user.name 'Ashwini'
 
     git config --global user.email 'ashwiniwaiker@gmail.com'
-
-What is Repository?
--> repository is where G tracks everything in your project think of it like a folder that stores all the versions of your code simply put if a folder is being tracked by git we call it a repo.
 
 2. To initialize empty repo
     git init
 
 3. To config the initiale branch name
     git config --global init.defaultBranch main    
+
+4. To see untracked files
+    git status
+
+5. To stage any file
+    git add <file name>
+
+6. To stage all untrack files
+    git add ./
+
+7. To commit all statged files with message
+    git commit -m 'Add hello and test files'     
+
+8. To see the history of all commits
+    git log           
+
+9. To exit git log - press Q
+
+10. To restore to previous commit when current commit contains buggy code/ or go to previous commit
+    git checkout <hash of previous commit>
+
+    this is a 'detached HEAD' state, we can do experimental chnages and commt them or discard them without impacting any branches by switching back to a branch.
+
+
+11. To get back to main branch/ current commit
+    git checkout main
+
+12. To discard the changes in 'detached HEAD' state and get back to main
+    git checkout -f main
+
+13. To create a new branch
+    git branch <branch-name>
+    git checkout <branch-name>
+
+    git checkout -b <branch-name>      --> in single line
+
+    git branch <new-branch-name> <Source-branch-name>         --> without checkout
+
+    // Now publishing local branch to remote
+    git push --set-upstream origin feature-branch
+
+    an upstream branch is a remote branch that your local branch tracks when you set an upstream Branch using set Upstream you're essentially linking your local branch to a branch on 
+    a remote repo through this command you push a local feature Branch to the or origin remote repository and then you 
+    set the Upstream Branch for your local feature Branch to track origin feature Branch alternatively you can also use 
+    
+    git push -u origin feature-branch
+
+    now i can simply wriete this to push --> git push
+
+    both set upstream and -u establish a tracking relationship between your local branch and the remote Branch
+
+14. To update local branch if any chnages happened in remote branch
+    git pull
+
 
 
