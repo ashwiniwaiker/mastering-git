@@ -24,6 +24,9 @@ PULL REQUEST
 pull request lets you share your changes with your team for review and feedback once approved and merged your changes 
 become a part of the main branch keeping the codebase stable and organized to open up
 
+MERGE CONFLICT
+merge conflict is a situation where git is uncertain about which part to merge
+
 1. To config name and email
     git config --global user.name 'Ashwini'
 
@@ -42,7 +45,7 @@ become a part of the main branch keeping the codebase stable and organized to op
     git add <file name>
 
 6. To stage all untrack files
-    git add ./
+    git add .
 
 7. To commit all statged files with message
     git commit -m 'Add hello and test files'     
@@ -88,5 +91,28 @@ become a part of the main branch keeping the codebase stable and organized to op
 14. To update local branch if any chnages happened in remote branch
     git pull
 
+15. MERGE CONFLICT
+    git branch dev-rishi
+    git checkout -b dev-ashwini
+    did some chnages in dev-ashwini branch
+    git add .
+    git commit -m 'changes done by dev-ashwini'
+    git push -u origin dev-ashwini
+    // create pull request and merge it
+
+    //now dev-rishi try to do some changes on the same file same line
+    git checkout dev-rishi
+    // do some changes
+    git add .
+    git commit -m 'changes done by dev-rishi'
+    git push -u origin dev-rishi
+    // create pull request - but not able to merge --> merge conflict
+
+    //How to resolve
+
+    git checkout main
+    git pull
+    git checkout dev-rishi
+    
 
 
