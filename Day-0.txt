@@ -113,6 +113,57 @@ merge conflict is a situation where git is uncertain about which part to merge
     git checkout main
     git pull
     git checkout dev-rishi
+    git merge main          --> git merge <branch-name to merge in current branch>
+
+
+16. To resett changes
+
+    4 commits c1 -> c2 -> c3 -> c4, reset to 2nd (head on 2nd) and do some changes 
+
+    SOFT RESET.  = git reset --soft <commit-hash>
+
+    git reset --soft only moves your local branch pointer backward,
+    all the code from your subsequent commits went into the staging area. 
+    When you made your new edits and ran git add ., those new changes were added 
+    right alongside them. Your staging area now contains a mix of the old afterward 
+    changes and your fresh edits.
+    When you run git commit -m "..." now, Git takes everything currently sitting in 
+    that staging area and bundles it into one single, brand-new commit.
+
+    c3 -> c4 are automatically staged, new c2 is unstaged
+    stage newc2 and commit
+
+    MIXED RESET = DEFULT WALA = git reset <commit-hash>
+    In the case of a mixed reset (--mixed), Git empties the staging area entirely.
+    Here is where everything goes:
+    The Undone Commits (3rd and 4th): Their changes are left in your working directory as unstaged modifications.
+    Your New Edits (in the 2nd commit files): They are also sitting right there in your working directory as unstaged changes alongside everything else.
+    Because everything is unstaged, you have to manually stage whatever you want to include before you can commit again.
+    To bundle everything together into a new single commit, you would run:
     
+    git add .
+    git commit -m "Your new commit message"
 
+    HARD RESET == git reset --hard <commit-hash> 
+    When you run git reset --hard <commit-hash> (for example, resetting back to the 2nd commit):
+    Commit Pointer Moves: Your branch (HEAD) moves back to the target commit (2nd commit).
+    Staging Area Cleared: All staged changes from the 3rd and 4th commits are completely wiped out.
+    Working Directory Cleared: All file modifications, unstaged edits, and newly added tracked files are discarded from your local disk.
 
+    // There is some old commits of dev-ashwini is merged to the main after that i did the changes 
+    in one the previous commit in dev-ashwini i did some changes and did new commit along with the afterward
+    commits, now dev-ashwini and main branch has differences now i want to merge my new chnages to main,
+    how can i do that->
+    git checkout main   (different from dev-ashwini)
+    git pull origin main
+    git reset --hard dev-ashwini    (Reset your local main branch to match your current dev-ashwini branch)
+    git push origin main --force
+
+    // Practising soft reset
+    create a new file in dev-rishi branch
+    did 3 commit, move to second one did some chnages and remove bad code happened in 3rd commit and then
+    did new fresh commit, 
+    pushed the chnages using : git push origin dev-rishi
+    pull request is created and merge the pr to main
+
+    
