@@ -150,7 +150,8 @@ merge conflict is a situation where git is uncertain about which part to merge
     Staging Area Cleared: All staged changes from the 3rd and 4th commits are completely wiped out.
     Working Directory Cleared: All file modifications, unstaged edits, and newly added tracked files are discarded from your local disk.
 
-    // There is some old commits of dev-ashwini is merged to the main after that i did the changes 
+    // SENARIO 1
+    There is some old commits of dev-ashwini is merged to the main after that i did the changes 
     in one the previous commit in dev-ashwini i did some changes and did new commit along with the afterward
     commits, now dev-ashwini and main branch has differences now i want to merge my new chnages to main,
     how can i do that->
@@ -166,4 +167,14 @@ merge conflict is a situation where git is uncertain about which part to merge
     pushed the chnages using : git push origin dev-rishi
     pull request is created and merge the pr to main
 
-    
+    // SENARIO 2
+    When you merged your dev-rishi branch into main via the GitHub web interface, GitHub created a merge commit directly on the 
+    remote main branch. Because that merge happened in the cloud, your local main branch on your laptop doesn't know about it 
+    yet—which is why your local branch was "behind" and threw that non-fast-forward error when you tried to push.
+
+    note : what is non-fast-forward error?
+    This non-fast-forward error means that the remote main branch on GitHub has commits that your local computer doesn't have yet.
+
+    To bring those remote merge commits down to your local computer and align your local main with GitHub, 
+    run the merge pull command 
+    git pull origin main --no-rebase
