@@ -116,7 +116,7 @@ merge conflict is a situation where git is uncertain about which part to merge
     git merge main          --> git merge <branch-name to merge in current branch>
 
 
-16. To resett changes
+16. To reset changes
 
     4 commits c1 -> c2 -> c3 -> c4, reset to 2nd (head on 2nd) and do some changes 
 
@@ -178,3 +178,20 @@ merge conflict is a situation where git is uncertain about which part to merge
     To bring those remote merge commits down to your local computer and align your local main with GitHub, 
     run the merge pull command 
     git pull origin main --no-rebase
+
+17. git revert <commit-hash>
+    git revert --continue
+
+    git revert is a Git command used to undo the changes made by a specific, previous commit by creating a brand-new commit 
+    that applies the exact opposite (inverse) changes.
+    Key Characteristics:
+    Preserves History: Unlike git reset (which deletes or rewrites past commits), git revert leaves your existing commit history 
+    completely intact and simply adds a new commit on top.
+    Safe for Shared Branches: Because it doesn't rewrite history, it is the safest command to use for undoing changes on public or 
+    shared branches (like main) where other developers are also collaborating.
+
+    :qa!  -- to exit vim
+
+18. git stash 
+    git stash list   -- to get the name of stash
+    git stash apply <stash-name>
